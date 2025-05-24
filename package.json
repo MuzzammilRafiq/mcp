@@ -1,0 +1,16 @@
+{
+  "name": "my-final-project",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/ssh2": "^1.15.5",
+    "ssh2": "^1.16.0"
+  }
+}
