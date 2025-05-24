@@ -10,7 +10,13 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@types/express": "^5.0.2",
     "@types/ssh2": "^1.15.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "openai": "^4.103.0",
     "ssh2": "^1.16.0"
   }
 }
