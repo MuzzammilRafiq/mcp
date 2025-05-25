@@ -1,3 +1,4 @@
+//weather-service.ts
 import axios from "axios";
 interface LocationData {
   ip: string;
@@ -89,17 +90,9 @@ const getWeatherData = async (latitude: string, longitude: string) => {
     // do some processing
     const time = weatherData.current.time.split(":")[0] + ":00";
     const index = weatherData.hourly.time.indexOf(time);
-    const nextHrsTime = weatherData.hourly.time
-      .slice(index, index + 5)
-      .map((t) => getMeridian(t));
-    const nextHrsTemp = weatherData.hourly.temperature_2m.slice(
-      index,
-      index + 5
-    );
-    const nextHrsHumidity = weatherData.hourly.relative_humidity_2m.slice(
-      index,
-      index + 5
-    );
+    const nextHrsTime = weatherData.hourly.time.slice(index, index + 5).map((t) => getMeridian(t));
+    const nextHrsTemp = weatherData.hourly.temperature_2m.slice(index, index + 5);
+    const nextHrsHumidity = weatherData.hourly.relative_humidity_2m.slice(index, index + 5);
     return {
       time: nextHrsTime,
       temperature: nextHrsTemp,
@@ -132,5 +125,3 @@ export const weatherService = async () => {
     throw new Error("internal error getting weather data api");
   }
 };
-
-console.log(JSON.stringify(await weatherService(), null, 2));
